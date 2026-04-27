@@ -1,17 +1,7 @@
-# What Works
+# What Works and What’s Next
 
-- Docker-based system builds and runs successfully
-- PCAP files are processed using libpcap
-- Packet data is parsed and analyzed
-- Logs are generated during execution
-- Metrics are exported in JSON format
-- Charts are generated from results
-- Tests (happy-path and edge cases) pass successfully
+The current system successfully implements a complete pipeline for analyzing network traffic from PCAP files. This is a Docker based environment that builds and runs without issues, allowing the system to be executed consistently using a single command sequence. Packet data is processed using the libpcap library, and relevant information is extracted, parsed, and analyzed through the system’s modular components.
 
-# What’s Next
+During execution, the system generates logs that capture key processing steps and outputs summary metrics in JSON format. In addition, charts are produced to visually represent the results, supporting basic evaluation of system behavior. The testing framework includes both happy path and edge case scenarios, and all tests pass successfully, demonstrating that the system handles both normal and invalid inputs reliably.
 
-- Improve detection logic for more accurate attack identification
-- Add port scan detection logic
-- Reduce false positives
-- Expand dataset testing beyond synthetic traffic
-- Improve metrics and visualization detail
+Looking ahead, several improvements can be made to enhance the system’s capabilities. Detection logic can be expanded to provide more accurate identification of attack patterns, including the addition of port scan detection. Reducing false positives and improving overall detection accuracy will also be important next steps. Furthermore, evaluation can be strengthened by using more diverse datasets beyond synthetic traffic. Finally, metrics and visualizations can be improved to provide more detailed insights into the network behavior.
