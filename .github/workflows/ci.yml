@@ -1,0 +1,19 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - run: sudo apt-get update
+      - run: sudo apt-get install -y gcc make libpcap-dev python3 python3-pip
+      - run: pip3 install scapy matplotlib
+      - run: make build
+      - run: bash tests/test_happy_path.sh
+      - run: bash tests/test_negative.sh
+      - run: bash tests/test_empty_pcap.sh
+      - run: bash tests/test_malformed_input.sh
+      - run: bash tests/test_threshold.sh

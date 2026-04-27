@@ -1,0 +1,1 @@
+Initial testing shows that the system successfully processes PCAP files and generates logs and metrics. SYN-based traffic triggers alerts, while basic benign traffic does not. Further improvements will include more advanced detection logic and reduced false positives.
