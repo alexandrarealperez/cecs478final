@@ -1,9 +1,9 @@
 # Architecture
 
-The system is a lightweight Network Intrusion Detection System (NIDS) designed to process PCAP files and identify suspicious traffic patterns. It operates as a modular pipeline where each component is responsible for a specific stage of packet analysis.
+This project implements a packet sniffer with BPF packet analysis, extended into a lightweight network intrusion system. The system processes PCAP files and analyzes packet level traffic to identify suspicious patterns.
 
-The process begins with packet capture, where network traffic is read from PCAP files using the libpcap library. The parser then extracts relevant information from each packet, including IP addresses, port numbers, and TCP flags. This parsed data is passed to the detection component, which applies rule-based logic to identify suspicious behaviors such as SYN-based traffic patterns.
+The system begins by reading packet data from PCAP files using the libpcap library. A parser extracts relevant fields such as IP addresses, port numbers, and TCP flags. This information is then passed to the detection module, which applies rule based logic to identify suspicious traffic patterns, including SYN-based activity.
 
-When potential threats are detected, the logger records alerts and key processing steps into log files. In addition to logging, the system includes a metrics exporter that generates summary statistics in JSON format, providing a structured overview of the analysis results.
+When potential threats are identified, a logging component records alerts and key processing steps. In parallel, a metrics exporter produces summary statistics in JSON format, and a visualization step generates charts to support evaluation.
 
-Overall, the data flow follows a straightforward pipeline: PCAP input is processed by the parser, analyzed by the detector, logged by the system, and summarized through metrics output. The entire system runs end-to-end within a Docker container and can be executed using a single command sequence.
+The overall data flow follows a structured pipeline: PCAP input is parsed, analyzed, logged, and summarized through metrics and visual outputs. The system runs end-to-end within a Docker container using a single command sequence.

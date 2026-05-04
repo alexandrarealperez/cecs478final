@@ -1,10 +1,14 @@
 #!/bin/bash
+set +e
 
-./nids nonexistent.pcap 2>/dev/null
+make build >/dev/null 2>&1
 
-if [ $? -ne 0 ]; then
-  echo "PASS"
+./nids nonexistent.pcap >/dev/null 2>&1
+status=$?
+
+if [ $status -ne 0 ]; then
+  echo "PASS: correctly handled nonexistent PCAP"
 else
-  echo "FAIL"
+  echo "FAIL: expected error on nonexistent PCAP"
   exit 1
 fi

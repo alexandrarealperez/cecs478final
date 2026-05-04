@@ -1,10 +1,15 @@
 #!/bin/bash
+set -e
 
-./nids artifacts/release/pcaps/test.pcap > output.txt
+make build
+mkdir -p artifacts/release/pcaps
+python3 scripts/generate_pcaps.py
 
-if grep -q "Total packets" output.txt; then
-  echo "PASS"
+./nids artifacts/release/pcaps/test.pcap > /tmp/happy_output.txt
+
+if grep -q "Total packets" /tmp/happy_output.txt; then
+  echo "PASS: happy path processed PCAP successfully"
 else
-  echo "FAIL"
+  echo "FAIL: expected packet processing output"
   exit 1
 fi

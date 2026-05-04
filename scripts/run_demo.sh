@@ -8,13 +8,13 @@ mkdir -p artifacts/release/metrics
 mkdir -p artifacts/release/charts
 mkdir -p artifacts/release/results
 
-echo "[*] Building NIDS binary..."
+echo "[*] Building packet sniffer..."
 make build
 
 echo "[*] Generating PCAP..."
 python3 scripts/generate_pcaps.py
 
-echo "[*] Running NIDS..."
+echo "[*] Running packet sniffer..."
 ./nids artifacts/release/pcaps/test.pcap > artifacts/release/logs/demo.log
 
 echo "[*] Exporting metrics..."
