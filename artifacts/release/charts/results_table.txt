@@ -1,0 +1,10 @@
+Packet Sniffer with BPF Results Summary
+======================================
+Total Packets: 200
+SYN Packets: 200
+ACK Packets: 0
+Non-SYN Packets: 0
+Alerts: 1
+BPF Filter: tcp
+SYN Threshold: 50
+Detection Type: SYN threshold detection

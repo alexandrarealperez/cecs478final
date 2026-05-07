@@ -1,4 +1,10 @@
 {
-  "total_packets": 20,
-  "alerts": 1
+  "total_packets": 200,
+  "syn_packets": 200,
+  "ack_packets": 0,
+  "non_syn_packets": 0,
+  "alerts": 1,
+  "bpf_filter": "tcp",
+  "syn_threshold": 50,
+  "detection_type": "SYN threshold detection"
 }

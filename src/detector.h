@@ -1,8 +1,6 @@
 #ifndef DETECTOR_H
 #define DETECTOR_H
 
-#include "parser.h"
-
-void detect(packet_info *info);
+int detect_syn_threshold(int syn_count, int threshold);
 
 #endif

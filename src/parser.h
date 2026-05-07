@@ -1,18 +1,17 @@
 #ifndef PARSER_H
 #define PARSER_H
 
-#include <pcap.h>
 #include <stdint.h>
 
 typedef struct {
-    char src_ip[16];
-    char dst_ip[16];
+    char src_ip[64];
+    char dst_ip[64];
     uint16_t src_port;
     uint16_t dst_port;
-    uint8_t flags;
-    int is_tcp;
+    int syn_flag;
+    int ack_flag;
 } packet_info;
 
-void parse_packet(const u_char *packet, packet_info *info);
+int parse_packet(const unsigned char *packet, packet_info *info);
 
 #endif

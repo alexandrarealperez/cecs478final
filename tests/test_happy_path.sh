@@ -1,15 +1,21 @@
 #!/bin/bash
 set -e
 
-make build
+echo "[*] Running happy path test..."
+
+make build >/dev/null 2>&1
+
 mkdir -p artifacts/release/pcaps
-python3 scripts/generate_pcaps.py
+mkdir -p artifacts/release/logs
+mkdir -p artifacts/release/metrics
 
-./nids artifacts/release/pcaps/test.pcap > /tmp/happy_output.txt
+python3 scripts/generate_pcaps.py --count 50 >/dev/null 2>&1
 
-if grep -q "Total packets" /tmp/happy_output.txt; then
-  echo "PASS: happy path processed PCAP successfully"
+./nids artifacts/release/pcaps/test.pcap tcp 10 > /tmp/happy_output.txt
+
+if grep -q "Total packets processed" /tmp/happy_output.txt; then
+    echo "PASS: Happy path processed packets successfully"
 else
-  echo "FAIL: expected packet processing output"
-  exit 1
+    echo "FAIL: Expected packet processing output not found"
+    exit 1
 fi

@@ -1,15 +1,21 @@
 #!/bin/bash
 set -e
 
-make build
+echo "[*] Running threshold detection test..."
+
+make build >/dev/null 2>&1
+
 mkdir -p artifacts/release/pcaps
-python3 scripts/generate_pcaps.py
+mkdir -p artifacts/release/logs
+mkdir -p artifacts/release/metrics
 
-./nids artifacts/release/pcaps/test.pcap > /tmp/threshold_output.txt
+python3 scripts/generate_pcaps.py --count 200 >/dev/null 2>&1
 
-if grep -q "Total packets" /tmp/threshold_output.txt; then
-  echo "PASS: threshold test completed successfully"
+./nids artifacts/release/pcaps/test.pcap tcp 50 > /tmp/threshold_output.txt
+
+if grep -q "ALERT" /tmp/threshold_output.txt; then
+    echo "PASS: Threshold detection triggered successfully"
 else
-  echo "FAIL: threshold test did not process packets"
-  exit 1
+    echo "FAIL: Expected alert not triggered"
+    exit 1
 fi

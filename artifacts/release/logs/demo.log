@@ -1,2 +1,42 @@
-[*] Starting analysis...
-[*] Total packets: 20
+[*] Starting Packet Sniffer with BPF analysis
+[*] Opening PCAP input: artifacts/release/pcaps/test.pcap
+[*] Applying BPF filter: tcp
+[*] SYN threshold configured: 50
+[ALERT] SYN threshold exceeded: suspicious traffic detected
+[*] Total packets processed: 200
+[*] SYN packets observed: 200
+[*] ACK packets observed: 0
+[*] Non-SYN packets observed: 0
+[*] Alerts generated: 1
+[*] Starting Packet Sniffer with BPF analysis
+[*] Opening PCAP input: artifacts/release/pcaps/test.pcap
+[*] Applying BPF filter: tcp
+[*] SYN threshold configured: 10
+[ALERT] SYN threshold exceeded: suspicious traffic detected
+[*] Total packets processed: 50
+[*] SYN packets observed: 50
+[*] ACK packets observed: 0
+[*] Non-SYN packets observed: 0
+[*] Alerts generated: 1
+[*] Starting Packet Sniffer with BPF analysis
+[*] Opening PCAP input: nonexistent.pcap
+[*] Applying BPF filter: tcp
+[*] SYN threshold configured: 10
+[*] Starting Packet Sniffer with BPF analysis
+[*] Opening PCAP input: /tmp/empty.pcap
+[*] Applying BPF filter: tcp
+[*] SYN threshold configured: 10
+[*] Starting Packet Sniffer with BPF analysis
+[*] Opening PCAP input: /tmp/bad.pcap
+[*] Applying BPF filter: tcp
+[*] SYN threshold configured: 10
+[*] Starting Packet Sniffer with BPF analysis
+[*] Opening PCAP input: artifacts/release/pcaps/test.pcap
+[*] Applying BPF filter: tcp
+[*] SYN threshold configured: 50
+[ALERT] SYN threshold exceeded: suspicious traffic detected
+[*] Total packets processed: 200
+[*] SYN packets observed: 200
+[*] ACK packets observed: 0
+[*] Non-SYN packets observed: 0
+[*] Alerts generated: 1

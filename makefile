@@ -25,5 +25,7 @@ test:
 
 clean:
 	rm -f $(TARGET)
+	rm -rf artifacts/release/*
 
 bootstrap: up
+

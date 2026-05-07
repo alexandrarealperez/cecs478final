@@ -7,12 +7,10 @@ RUN apt-get update && apt-get install -y \
     tcpdump \
     python3 \
     python3-pip \
-    && pip3 install matplotlib scapy \
+    && pip3 install scapy matplotlib \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 COPY . /app
-
-RUN make build
 
 CMD ["/bin/bash"]
